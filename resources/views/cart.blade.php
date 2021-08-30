@@ -2,7 +2,7 @@
 @section('title','Ecommerce - Cart')
 @section('content')
       <div class="container mt-20" >
-        <span> <a href="index.html" class="product-a">Home</a></span> > <span>Shopping Cart</span>
+        <span> <a href="{{ route('index')}}" class="product-a">Home</a></span> > <span>Shopping Cart</span>
         <hr>
       	 <div class="col-md-10 mb-70 mt-50 pddng0">
       		 <h5 class="text-bold mb-30">3 İtem(s) in Shopping Cart</h5>
@@ -111,8 +111,8 @@
     			</div>
     		</div>
     		<div class="col-md-12 mt-40">
-    		  <a href="urunler.html" class="shop-btn " >Continue Shopping</a>
-    			<a href="login.html" class="shop-check-btn">Proceed to Checkout</a>
+    		  <a href="{{ route('shop')}}" class="shop-btn " >Continue Shopping</a>
+    			<a href="{{ route('checkout')}}" class="shop-check-btn">Proceed to Checkout</a>
 			</div>
 	</div>
 </div>

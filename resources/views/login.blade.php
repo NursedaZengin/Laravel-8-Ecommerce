@@ -18,7 +18,7 @@
     			</div>
           <div  class="row pl-15 mt-10 mb-30">
             <button class="ml-4 login-btn">Login </button>
-    				<span>Forgot Your Password? <a href="checkout.html" class="product-a">Checkout as a Guest</a></span>
+    				<span>Forgot Your Password? <a href="{{ route('checkout')}}" class="product-a">Checkout as a Guest</a></span>
          </div>
        </form>
       </div>

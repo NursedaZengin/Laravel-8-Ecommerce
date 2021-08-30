@@ -2,7 +2,7 @@
 @section('title','Ecommerce - Shop Detail')
 @section('content')
       <div class="container mt-20" >
-      <span> <a href="index.html" class="product-a">Home</a></span> > <span><a href="urunler.html" class="product-a">Shop</a></span> > <span>Phone 2</span>
+      <span> <a href="{{ route('index')}}" class="product-a">Home</a></span> > <span><a href="{{ route('shop')}}" class="product-a">Shop</a></span> > <span>Phone 2</span>
       <hr>
       	<div class="col-md-12 mx-70 pddng0">
       		<div class="col-md-6 border text-center">
@@ -13,7 +13,7 @@
       			<p> 64GB 5.7 inch screen 4GHz Quad Core</p>
       			<span class="text-bold product-price">$1397.92</span>
       			<p class="product-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
-      			<a href="cart.html" class="add-btn"> Add to Cart</a>
+      			<a href="{{ route('cart')}}" class="add-btn"> Add to Cart</a>
       		</div>
       	</div>
       </div>

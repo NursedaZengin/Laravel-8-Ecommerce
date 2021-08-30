@@ -2,7 +2,7 @@
 @section('title','Ecommerce - Shop')
 @section('content')
     <div class="container mt-20" >
-      <span> <a href="index.html" class="product-a">Home</a></span> > <span>Shop</span>
+      <span> <a href="{{ route('index')}}" class="product-a">Home</a></span> > <span>Shop</span>
       <hr>
       	<div class="row mt-30">
       		<div class="col-md-2">
@@ -25,21 +25,21 @@
       			<div class="col-md-12">
       				<div class="row">
       					<div class="col-md-4 text-center p-20">
-      					  <a href="urun-detay.html" class="product-a">
+      					  <a href="{{ route('shopdetail')}}" class="product-a">
         						<img src="img/laptop.png" class="product-img"/>
         						<p>Laptop1</p>
         						<span>$1973,61</span>
       						</a>
       					</div>
       					<div class="col-md-4 text-center p-20">
-        					<a href="" class="product-a">
+        					<a href="{{ route('shopdetail')}}" class="product-a">
         						<img src="img/laptop.png" class="product-img"/>
         						<p>Laptop1</p>
         						<span>$1973,61</span>
         					</a>
       					</div>
       					<div class="col-md-4 text-center p-20">
-        					<a href="" class="product-a">
+        					<a href="{{ route('shopdetail')}}" class="product-a">
         						<img src="img/laptop.png" class="product-img"/>
         						<p>Laptop1</p>
         						<span>$1973,61</span>
@@ -48,21 +48,21 @@
       				</div>
       				<div class="row">
       					<div class="col-md-4 text-center p-20 ">
-        					<a href="" class="product-a">
+        					<a href="{{ route('shopdetail')}}" class="product-a">
         						<img src="img/laptop.png" class="product-img"/>
         						<p>Laptop1</p>
         						<span>$1973,61</span>
       						</a>
       					</div>
       					<div class="col-md-4 text-center p-20 ">
-        					<a href="" class="product-a">
+        					<a href="{{ route('shopdetail')}}" class="product-a">
         						<img src="img/laptop.png" class="product-img"/>
         						<p>Laptop1</p>
         						<span>$1973,61</span>
       						</a>
       					</div>
       					<div class="col-md-4 text-center p-20">
-        					<a href="" class="product-a">
+        					<a href="{{ route('shopdetail')}}" class="product-a">
         						<img src="img/laptop.png" class="product-img"/>
         						<p>Laptop1</p>
         						<span>$1973,61</span>
@@ -71,21 +71,21 @@
 				      </div>
       				<div class="row">
       					<div class="col-md-4 text-center p-20">
-        					<a href="" class="product-a">
+        					<a href="{{ route('shopdetail')}}" class="product-a">
         						<img src="img/laptop.png" class="product-img"/>
         						<p>Laptop1</p>
         						<span>$1973,61</span>
       						</a>
       					</div>
       					<div class="col-md-4 text-center p-20">
-        					<a href="" class="product-a">
+        					<a href="{{ route('shopdetail')}}" class="product-a">
         						<img src="img/laptop.png" class="product-img"/>
         						<p>Laptop1</p>
         						<span>$1973,61</span>
       						</a>
       					</div>
       					<div class="col-md-4 text-center p-20">
-        					<a href="" class="product-a">
+        					<a href="{{ route('shopdetail')}}" class="product-a">
         						<img src="img/laptop.png" class="product-img"/>
         						<p>Laptop1</p>
         						<span>$1973,61</span>
