@@ -29,9 +29,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function detail()//UserDetail ile ilişki kurar
-   {
-     return $this->hasOne('App\Models\UserDetail')->withDefault();
-   }
+
 
 }

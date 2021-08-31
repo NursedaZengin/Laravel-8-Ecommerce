@@ -18,6 +18,7 @@ class Products extends Model
         'properties',
         'description',
         'price',
+        'image',
     ];
 
     public function detail()//ProductDetail modeli ile ilişki kurar

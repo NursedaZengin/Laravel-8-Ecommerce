@@ -18,6 +18,7 @@ class CreateProductTable extends Migration
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->string('product_name',100);
             $table->string('slug',160);
+            $table->string('image',160)->nullable();
             $table->text('properties')->nullable();
             $table->text('description')->nullable();//text alanda karakter sayısı belirtilmez
             $table->decimal('price',10,2);//2. parametre = toplam bas. sayısı, 3. parametre = ondalık kısmının bas. sayısı
