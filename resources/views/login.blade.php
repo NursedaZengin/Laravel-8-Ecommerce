@@ -3,7 +3,8 @@
 @section('content')
     <div class="container mt-20" >
     <span>Login</span>
-      <form method="POST" action="">
+      <form method="POST" action="{{ route('authenticate')}}">
+        @csrf
           <div class="row pl-15">
               <label for="email" value="" class="form-label w-full" />E-Mail Address</br>
               <input id="email" class=" w-full" type="email" name="email" :value="" required autofocus />
