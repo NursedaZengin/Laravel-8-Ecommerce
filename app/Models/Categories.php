@@ -14,5 +14,8 @@ class Categories extends Model
     protected $fillable = [
         'title',
         'slug',
+        'created_at',
+        'updated_at',
+        'deleted_at',
     ];
 }

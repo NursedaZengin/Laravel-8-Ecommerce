@@ -18,6 +18,9 @@ class Order extends Model
         'name',
         'address',
         'phone',
+        'created_at',
+        'updated_at',
+        'deleted_at',
     ];
 
     public function shoppingCart()//shoppingCart tablosu ile ilişki kurar

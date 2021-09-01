@@ -9,8 +9,12 @@ use App\Http\Controllers\ShopdetailController;
 use App\Http\Controllers\CheckoutController;
 
 Route::get("/",[HomeController::class,'index'])->name('index');
-Route::get("/shop",[ShopController::class,'index'])->name('shop');
-Route::get("/{category}",[ShopController::class,'shopcategory'])->name('shopcategory');
+
+Route::group(['prefix'=>'shop'],function(){
+  Route::get('/',[ShopController::class,'index'])->name('shop');
+  Route::get('/{category}',[ShopController::class,'shopcategory'])->name('shopcategory');
+});
+
 Route::get("/shopdetail/{slug_product}",[ShopDetailController::class,'index'])->name('shopdetail');
 Route::get("/login",[LoginController::class,'index'])->name('login');
 Route::post("/authenticate",[LoginController::class,'authenticate'])->name('authenticate');

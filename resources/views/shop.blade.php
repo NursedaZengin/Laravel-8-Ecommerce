@@ -19,7 +19,7 @@
                 @foreach($products as $product)
       					<div class="col-md-4 text-center p-20">
       					  <a href="{{ route('shopdetail',$product->slug)}}" class="product-a">
-        						<img src="img/{{{ $product->image}}}" class="product-img"/>
+        						<img src="../img/{{{ $product->image}}}" class="product-img"/>
         						<p>{{ $product->product_name }}</p>
         						<span>${{ $product->price }}</span>
       						</a>

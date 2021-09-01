@@ -19,6 +19,9 @@ class Products extends Model
         'description',
         'price',
         'image',
+        'created_at',
+        'updated_at',
+        'deleted_at',
     ];
 
     public function detail()//ProductDetail modeli ile ilişki kurar

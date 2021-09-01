@@ -16,6 +16,9 @@ class ShoppingCartDetail extends Model
         'product_id',
         'quantity',
         'price',
+        'created_at',
+        'updated_at',
+        'deleted_at',
     ];
 
     public function product()//products tablosu ile ilişki kurar
