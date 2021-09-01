@@ -5,18 +5,7 @@
       <span> <a href="{{ route('index')}}" class="product-a">Home</a></span> > <span>Shop</span>
       <hr>
       	<div class="row mt-30">
-      		<div class="col-md-2">
-        		<h5 class="text-bold">By Category</h5>
-        		<ul class="categories mt-20">
-        			<li><a href="" class="product-a">Laptops</a></li>
-        			<li><a href="" class="product-a"> Desktops</a></li>
-        			<li><a href="" class="product-a">Mobile Phones</a></li>
-        			<li><a href="" class="product-a">Tablets</a></li>
-        			<li><a href="" class="product-a">Tvs</a></li>
-        			<li><a href="" class="product-a">Digital Cameras</a></li>
-        			<li><a href="" class="product-a">Appliances</a></li>
-        		</ul>
-      		</div>
+      		@include('layouts.partials.sidebar')
       		<div class="col-md-10">
       			<div class="col-md-12">
       				<div class="col-md-6"><h2 class="shop-h">Featured</h2></div>
@@ -24,73 +13,18 @@
       			</div>
       			<div class="col-md-12">
       				<div class="row">
+                @if(count($products)<1)
+                <div class="col-md-12"><p>Bu kategoriye ait ürün bulunmamaktadır.</p></div>
+                @endif
+                @foreach($products as $product)
       					<div class="col-md-4 text-center p-20">
-      					  <a href="{{ route('shopdetail')}}" class="product-a">
-        						<img src="img/laptop.png" class="product-img"/>
-        						<p>Laptop1</p>
-        						<span>$1973,61</span>
+      					  <a href="{{ route('shopdetail',$product->slug)}}" class="product-a">
+        						<img src="img/{{{ $product->image}}}" class="product-img"/>
+        						<p>{{ $product->product_name }}</p>
+        						<span>${{ $product->price }}</span>
       						</a>
       					</div>
-      					<div class="col-md-4 text-center p-20">
-        					<a href="{{ route('shopdetail')}}" class="product-a">
-        						<img src="img/laptop.png" class="product-img"/>
-        						<p>Laptop1</p>
-        						<span>$1973,61</span>
-        					</a>
-      					</div>
-      					<div class="col-md-4 text-center p-20">
-        					<a href="{{ route('shopdetail')}}" class="product-a">
-        						<img src="img/laptop.png" class="product-img"/>
-        						<p>Laptop1</p>
-        						<span>$1973,61</span>
-      						</a>
-      					</div>
-      				</div>
-      				<div class="row">
-      					<div class="col-md-4 text-center p-20 ">
-        					<a href="{{ route('shopdetail')}}" class="product-a">
-        						<img src="img/laptop.png" class="product-img"/>
-        						<p>Laptop1</p>
-        						<span>$1973,61</span>
-      						</a>
-      					</div>
-      					<div class="col-md-4 text-center p-20 ">
-        					<a href="{{ route('shopdetail')}}" class="product-a">
-        						<img src="img/laptop.png" class="product-img"/>
-        						<p>Laptop1</p>
-        						<span>$1973,61</span>
-      						</a>
-      					</div>
-      					<div class="col-md-4 text-center p-20">
-        					<a href="{{ route('shopdetail')}}" class="product-a">
-        						<img src="img/laptop.png" class="product-img"/>
-        						<p>Laptop1</p>
-        						<span>$1973,61</span>
-      						</a>
-      					</div>
-				      </div>
-      				<div class="row">
-      					<div class="col-md-4 text-center p-20">
-        					<a href="{{ route('shopdetail')}}" class="product-a">
-        						<img src="img/laptop.png" class="product-img"/>
-        						<p>Laptop1</p>
-        						<span>$1973,61</span>
-      						</a>
-      					</div>
-      					<div class="col-md-4 text-center p-20">
-        					<a href="{{ route('shopdetail')}}" class="product-a">
-        						<img src="img/laptop.png" class="product-img"/>
-        						<p>Laptop1</p>
-        						<span>$1973,61</span>
-      						</a>
-      					</div>
-      					<div class="col-md-4 text-center p-20">
-        					<a href="{{ route('shopdetail')}}" class="product-a">
-        						<img src="img/laptop.png" class="product-img"/>
-        						<p>Laptop1</p>
-        						<span>$1973,61</span>
-      						</a>
-      					</div>
+                @endforeach
       				</div>
 			      </div>
 		     </div>
