@@ -8,6 +8,10 @@ class CheckoutController extends Controller
 {
   public function index()
   {
-    return view('checkout');
+      if (auth()->user() && request()->is('guestCheckout'))
+      {
+             return redirect()->route('checkout');
+      }
+      return view('checkout');
   }
 }

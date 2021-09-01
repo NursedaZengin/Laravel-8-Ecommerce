@@ -9,10 +9,18 @@
       </ul>
     </div>
     <div class="col-md-3 float-right pddng0 text-right">
-        <a href="" class="menu-item ml-20">SIGN UP</a></li>
+      @if(!request()->is('checkout'))
+        @guest<!--bu kısım oturum açılmadığında görünecek kısım -->
+        <a href="{{ route('logout')}}" class="menu-item ml-20">SIGN UP</a></li>
+        @endguest
+        @auth<!-- bu kısım giriş yapan kullanıcı görür  -->
+        <a href="{{ route('logout')}}" class="menu-item ml-20">LOG OUT</a></li>
+        @endauth
+        @guest<!--bu kısım oturum açılmadığında görünecek kısım -->
         <a href="{{ route('login')}}" class="menu-item ml-20">LOGIN</a></li>
-        <a href="{{ route('cart')}}" class="menu-item ml-20">CART</a><span class="cart-span">3</span></li>
-      </ul>
+        @endguest
+        <a href="{{ route('cart')}}" class="menu-item ml-20">CART</a><span class="cart-span">3</span>
+      @endif
     </div>
   </div>
 </header>

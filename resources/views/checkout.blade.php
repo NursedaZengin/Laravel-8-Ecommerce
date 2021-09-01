@@ -10,20 +10,24 @@
       		          <form method="POST" action="">
                       <div class="row pl-15">
                           <label for="email" value="" class="form-label w-full" />E-Mail Address</br>
-                          <input id="email" class=" w-full" type="email" name="email" :value="" required autofocus />
+                          @if(auth()->user())
+                          <input id="email" class=" w-full" type="email" name="email" value="{{ auth()->user()->email}}" required autofocus readonly/>
+                          @else
+                              <input id="email" class=" w-full" type="email" name="email" value="{{ old('email')}}" required autofocus readonly/>
+                          @endif
                       </div>
                       <div class="row pl-15">
                           <label for="name" value="" class="form-label w-full" />Name</br>
-                          <input id="name" class=" w-full" type="text" name="name" required />
+                          <input id="name" class=" w-full" type="text" name="name" value="{{ old('name')}}" required />
                       </div>
                 			<div class="row pl-15">
                           <label for="address" value="" class="form-label w-full" />Address</br>
-                          <input id="address" class=" w-full" type="text" name="address" required />
+                          <input id="address" class=" w-full" type="text" name="address" value="{{ old('address')}}" required />
                       </div>
               			  <div class="row pl-15">
                 				<div class="col-md-6  pl-0">
                 					<label for="city" value="" class="form-label w-full" />City</br>
-                					<input id="city" class=" w-full" type="text" name="city" required />
+                					<input id="city" class=" w-full" type="text" name="city" value="{{ old('city')}}" required />
                 				 </div>
                 				 <div class="col-md-6  pr-0">
                 					<label for="province" value="" class="form-label w-full" />Province</br>
@@ -33,11 +37,11 @@
               			  <div class="row pl-15">
               				 <div class="col-md-6  pl-0">
                           <label for="posta" value="" class="form-label w-full" />Posta Code</br>
-                          <input id="posta" class=" w-full" type="text" name="posta" required />
+                          <input id="posta" class=" w-full" type="text" name="posta" value="{{ old('posta')}}" required />
                        </div>
               			   <div class="col-md-6  pr-0">
                           <label for="phone" value="" class="form-label w-full" />Phone</br>
-                          <input id="phone" class=" w-full" type="text" name="phone" required />
+                          <input id="phone" class=" w-full" type="text" name="phone" value="{{ old('phone')}}" required />
                        </div>
                       </div>
                       <div  class="row pl-15 mt-10 mb-30">
