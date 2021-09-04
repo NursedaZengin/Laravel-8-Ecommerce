@@ -30,3 +30,5 @@ Route::get("/guestcheckout",[CheckoutController::class,'index'])->name('guestChe
 
 //shoppingcart
 Route::get("/cart",[CartController::class,'index'])->name('cart');
+Route::post("/cart",[CartController::class,'store'])->name('store');
+Route::delete("/cart/{id}",[CartController::class,'remove'])->name('remove');

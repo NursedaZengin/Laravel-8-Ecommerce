@@ -13,7 +13,13 @@
       			<p> {{ $product->properties}}</p>
       			<span class="text-bold product-price">${{ $product->price}}</span>
       			<p class="product-p">{{ $product->description}}</p>
-      			<a href="{{ route('cart', $product->id)}}" class="add-btn"> Add to Cart</a>
+            <form action="{{ route('store') }}" method="post" >
+                 @csrf
+                 <input type="hidden" name="id" value="{{ $product->id }}">
+                 <input type="hidden" name="name" value="{{ $product->name }}">
+                 <input type="hidden" name="price" value="{{ $product->price }}">
+                 <input type="submit" class="add-btn" value="Add to Cart">
+               </form>
       		</div>
       	</div>
       </div>

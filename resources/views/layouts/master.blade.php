@@ -13,6 +13,6 @@
   @yield('content')
   @include('layouts.partials.footer')
   </container>
+  @yield('js')
 </body>
-@yield('js')
 </html>

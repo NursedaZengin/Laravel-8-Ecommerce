@@ -22,7 +22,10 @@
           @guest<!--bu kısım oturum açılmadığında görünecek kısım -->
           <a href="{{ route('login')}}" class="menu-item ml-20">LOGIN</a></li>
           @endguest
-          <a href="{{ route('cart')}}" class="menu-item ml-20">CART</a><span class="cart-span">3</span>
+          <a href="{{ route('cart')}}" class="menu-item ml-20">CART</a>
+          @if(Cart::count()>0)
+          <span class="cart-span">{{ Cart::count() }}</span>
+          @endif
         @endif
     </div>
   </div>
