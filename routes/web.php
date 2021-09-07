@@ -34,7 +34,7 @@ Route::group(['prefix'=>'cart'],function(){
   Route::post("/",[CartController::class,'store'])->name('store');
   Route::delete("/{id}",[CartController::class,'remove'])->name('remove');
   Route::post("/SaveFLater/{product}",[CartController::class,'SaveFLater'])->name('SaveFLater');
-  Route::patch("/{product}",[CartController::class,'update'])->name('update'); //quantity update
+  Route::patch("/update/{id}",[CartController::class,'update'])->name('update'); //quantity update
   Route::post("/moveToCart/{id}",[CartController::class,'moveToCart'])->name('moveToCart');
   Route::delete("/moveToCartDelete/{id}",[CartController::class,'moveToCartDelete'])->name('moveToCartDelete');
 });

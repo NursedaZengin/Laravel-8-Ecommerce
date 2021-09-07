@@ -3,3 +3,4 @@
 <link rel="stylesheet" href="{{ asset('css/bootstrap.css')}}" type="text/css" />
 <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css')}}" type="text/css"/ >
 <link rel="stylesheet" href="{{ asset('style.css')}}" type="text/css" />
+<meta name="csrf-token" content="{{ csrf_token() }}">

@@ -14,9 +14,11 @@ class CartController extends Controller
     return view('cart');
   }
 
-  public function update(Request $request,$id)
+  public function update($id)
   {
-    return $request>all();
+    Cart::update($id,request('adet'));
+    session()->flash('alert-success' , 'Item was updated to your cart.');
+    return response()->json(['success'=>true]);
   }
 
   public function store(Request $request)

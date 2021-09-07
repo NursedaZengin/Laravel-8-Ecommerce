@@ -17,8 +17,8 @@ class ShoppingCart extends Model
     public function qtyPlus($rowId)
     {
       $product=Cart::get($rowId);
-      dd($rowId);
       $qty=$product->qty+1;
+      dd($qty);
       Cart::update($rowId,$qty);
     }
 
