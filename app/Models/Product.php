@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Products extends Model
+class Product extends Model
 {
     use HasFactory;
     use softDeletes;
@@ -24,8 +24,9 @@ class Products extends Model
         'deleted_at',
     ];
 
-    public function detail()//ProductDetail modeli ile ilişki kurar
-    {
-      return $this->hasOne('App\Models\ProductDetail')->withDefault();
-    }
+
+    public function category() // category tablosu ile ilişki kurar
+     {
+         return $this->belongsToMany('App\Models\Category');
+     }
 }

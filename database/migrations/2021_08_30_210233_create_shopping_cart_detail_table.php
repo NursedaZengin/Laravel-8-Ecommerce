@@ -18,7 +18,6 @@ class CreateShoppingCartDetailTable extends Migration
             $table->foreignId('shoppingCart_id')->constrained('shoppingCart')->onDelete('cascade');
             $table->foreignId('product_id')->constrained('product')->onDelete('cascade');
             $table->integer('quantity');
-            $table->decimal('price',10,2);
             $table->timestamps();
             $table->softdeletes()->nullable();
         });

@@ -15,14 +15,11 @@ class ShoppingCartDetail extends Model
         'shoppingCart_id',
         'product_id',
         'quantity',
-        'price',
         'created_at',
         'updated_at',
         'deleted_at',
     ];
 
-    public function product()//products tablosu ile ilişki kurar
-    {
-    	return $this->belongsTo('App\Models\Products');
-    }
+
+
 }

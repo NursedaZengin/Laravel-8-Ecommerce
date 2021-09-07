@@ -23,8 +23,8 @@
           <a href="{{ route('login')}}" class="menu-item ml-20">LOGIN</a></li>
           @endguest
           <a href="{{ route('cart')}}" class="menu-item ml-20">CART</a>
-          @if(Cart::count()>0)
-          <span class="cart-span">{{ Cart::count() }}</span>
+          @if(Cart::instance('default')->count()>0)
+              <span class="cart-span">{{ Cart::instance('default')->count() }}</span>
           @endif
         @endif
     </div>
