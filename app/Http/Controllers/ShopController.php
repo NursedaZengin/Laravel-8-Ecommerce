@@ -23,5 +23,12 @@ class ShopController extends Controller
     return view('shop',compact('products','categories'));
   }
 
+  public function detail($slug_product)
+  {
+    $product=Product::whereRaw('deleted_at is null')->whereSlug($slug_product)->firstOrFail();
+    $categories=Category::whereRaw('deleted_at is null')->orderBy('id','desc')->get();
+    return view('shopdetail',compact('product','categories'));
+  }
+
 
 }

@@ -16,9 +16,11 @@ class CartController extends Controller
 
   public function update($id)
   {
-    Cart::update($id,request('adet'));
+    Cart::update($id,request('adet'));//gelen id ye ait ürünün ajaxta tanımladığımız datadan gelen adet ile günceller
+    //burada ajax ile işlem yaptığım için redirect methodu kullanılmaz
+    //bunun yerine sessionda flash methodu ile bilgilendirme mesajı gönderilir
     session()->flash('alert-success' , 'Item was updated to your cart.');
-    return response()->json(['success'=>true]);
+    return response();//tüm işlemleri response eder
   }
 
   public function store(Request $request)

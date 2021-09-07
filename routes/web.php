@@ -15,9 +15,10 @@ Route::get("/",[HomeController::class,'index'])->name('index');
 Route::group(['prefix'=>'shop'],function(){
   Route::get('/',[ShopController::class,'index'])->name('shop');
   Route::get('/{category}',[ShopController::class,'shopcategory'])->name('shopcategory');
+  Route::get("/detail/{slug_product}",[ShopController::class,'detail'])->name('shopdetail');
 });
 
-Route::get("/shopdetail/{slug_product}",[ShopDetailController::class,'index'])->name('shopdetail');
+//Route::get("/shopdetail/{slug_product}",[ShopDetailController::class,'index'])->name('shopdetail');
 
 //login
 Route::get("/login",[LoginController::class,'index'])->name('login');
@@ -27,8 +28,10 @@ Route::get("/logout",[LoginController::class,'logout'])->name('logout');
 //guest check
 Route::get("/checkout",[CheckoutController::class,'index'])->name('checkout')->middleware('auth');
 Route::get("/guestcheckout",[CheckoutController::class,'index'])->name('guestCheckOut');
+Route::post("/checkout",[CheckoutController::class,'order'])->name('order');
+Route::get("/order",[CheckoutController::class,'orderdetail'])->name('orderdetail');
 
-//shoppingcart
+//cart - sepet
 Route::group(['prefix'=>'cart'],function(){
   Route::get("/",[CartController::class,'index'])->name('cart');
   Route::post("/",[CartController::class,'store'])->name('store');

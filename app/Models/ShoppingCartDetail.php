@@ -11,6 +11,8 @@ class ShoppingCartDetail extends Model
     use HasFactory;
     use SoftDeletes;
 
+    protected $table = 'shoppingCartDetail';
+
     protected $fillable = [
         'shoppingCart_id',
         'product_id',

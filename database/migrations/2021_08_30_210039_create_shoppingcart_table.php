@@ -15,8 +15,10 @@ class CreateShoppingCartTable extends Migration
     {
         Schema::create('shoppingCart', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('user')->onDelete('cascade');
-            $table->string('email')->unique();
+            $table->integer('user_id')->unsigned()->nullable();
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onUpdate('cascade')->onDelete('set null');
+            $table->string('email');
             $table->string('status',30)->nullable();
             $table->string('name',60);
             $table->string('address',200)->nullable();
@@ -26,7 +28,7 @@ class CreateShoppingCartTable extends Migration
             $table->string('phone',15)->nullable();
             $table->decimal('subtotal',10,2);
             $table->decimal('total',10,2);
-            $table->integer('tax');
+            $table->decimal('tax',10,2);
             $table->timestamps();
             $table->softdeletes()->nullable();
         });

@@ -14,15 +14,9 @@ class ShoppingCart extends Model
 
     protected $guarded = [];
 
-    public function qtyPlus($rowId)
-    {
-      $product=Cart::get($rowId);
-      $qty=$product->qty+1;
-      dd($qty);
-      Cart::update($rowId,$qty);
-    }
+    protected $table = 'shoppingCart';
 
-   public function user()//user tablosu ile ilişki kurar
+     public function user()//user tablosu ile ilişki kurar
    {
      return $this->belongsTo('App\Models\User');
    }
