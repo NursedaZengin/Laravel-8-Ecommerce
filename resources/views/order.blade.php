@@ -6,6 +6,12 @@
       @include('layouts.partials.success')
       @include('layouts.partials.info')
       @include('layouts.partials.alert')
+      @auth
+      <a href="{{ route('myorders') }}" class="shop-btn " >My Orders </a>
+      @endauth
+      @guest
+      <a href="{{ route('myorder') }}" class="shop-btn " >Order Detail </a>
+      @endguest
     </div>
 </div>
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\Product;
 use App\Models\ShoppingCart;
 use App\Models\ShoppingCartDetail;
@@ -26,7 +27,7 @@ class CheckoutController extends Controller
       $order = request()->all();//istekten gelen tüm siparişi alır
       $order['user_id'] =auth()->user() ? auth()->user()->id : null;
       $order['email'] = $request->email;
-      $order['status'] = 'Sipariş alındı.';
+      $order['status'] = 'Order has been received.';
       $order['name'] = $request->name;
       $order['address'] =$request->address;
       $order['city'] = $request->city;
@@ -63,6 +64,31 @@ class CheckoutController extends Controller
   public function orderdetail()
   {
     return view('order');
+  }
+
+  public function myorder()
+  {
+    $orders = ShoppingCart::whereRaw('deleted_at is null')->orderBy('id','desc')->firstOrFail();//sipariş
+    $orderproducts=ShoppingCartDetail::whereRaw('deleted_at is null')->where('shoppingCart_id','=',$orders->id)->get();//siparişteki ürün id si ve miktarı
+    $orderquantity=$orderproducts->sum('quantity');//siparişteki ürün sayısı
+    $products=Product::whereRaw('deleted_at is null')->get();
+    return view('myorder',compact('orders','products','orderquantity','orderproducts'));
+  }
+
+  public function myorders()
+  {
+    $user=auth()->user();
+    $orders = ShoppingCart::whereRaw('deleted_at is null')->where('user_id','=',$user->id)->orderBy('id','desc')->get();//giriş yapan kullanıcının siparişleri
+    return view('myorder',compact('orders'));
+  }
+
+  public function myorderdetail($id)
+  {
+    $order = ShoppingCart::whereRaw('deleted_at is null')->where('id','=',$id)->firstOrFail();//gelen idye ait sipariş
+    $orderdetail=ShoppingCartDetail::whereRaw('deleted_at is null')->where('shoppingCart_id','=',$order->id)->get();//gelen siparişin detayı
+    $orderquantity=$orderdetail->sum('quantity');//siparişteki ürün sayısı
+    $products=Product::whereRaw('deleted_at is null')->get();
+    return view('myorderdetail',compact('order','products','orderquantity','orderdetail'));
   }
 
 }

@@ -45,6 +45,9 @@
                           <input id="phone" class=" w-full" type="text" name="phone" value="{{ old('phone')}}" required />
                        </div>
                       </div>
+                      <div class="row pl-15">
+                        <span class="note">Pay at the door only</span>
+                      </div>
                       <div  class="row pl-15 mt-10 mb-30">
                           <button class="ml-4 login-btn">Buy </button>
                       </div>

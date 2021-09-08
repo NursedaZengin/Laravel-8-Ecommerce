@@ -22,8 +22,8 @@ class LoginController extends Controller
         if (Auth::attempt($credentials))//kullanıcı varsa
         {
             $request->session()->regenerate();//istekteki session yenilenir
-            echo "login";
-            return redirect()->intended();//anasayfaya geri yönlendirilir
+            Auth::attempt($credentials, $remember = $request->has('remember'));//eğer beni hatırlaya tıklanmışsa tabloya veri atar
+            return redirect('/');//anasayfaya geri yönlendirilir
         }
         else
         {
@@ -40,4 +40,8 @@ class LoginController extends Controller
         $request->session()->regenerateToken(); // sessionın idsini sıfırlar
         return redirect('/');
   }
+
+
+
+
 }

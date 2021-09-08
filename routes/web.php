@@ -7,9 +7,15 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ShopdetailController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\RegisterController;
 
 //home
 Route::get("/",[HomeController::class,'index'])->name('index');
+
+Route::get("/about",[HomeController::class,'about'])->name('about');
+
+Route::get("/blog",[HomeController::class,'blog'])->name('blog');
+
 
 //shopping
 Route::group(['prefix'=>'shop'],function(){
@@ -24,12 +30,17 @@ Route::group(['prefix'=>'shop'],function(){
 Route::get("/login",[LoginController::class,'index'])->name('login');
 Route::post("/authenticate",[LoginController::class,'authenticate'])->name('authenticate');
 Route::get("/logout",[LoginController::class,'logout'])->name('logout');
+Route::get("/signup",[RegisterController::class,'index'])->name('signup');
+Route::post("/signup",[RegisterController::class,'signup'])->name('signup');
 
 //guest check
 Route::get("/checkout",[CheckoutController::class,'index'])->name('checkout')->middleware('auth');
 Route::get("/guestcheckout",[CheckoutController::class,'index'])->name('guestCheckOut');
 Route::post("/checkout",[CheckoutController::class,'order'])->name('order');
 Route::get("/order",[CheckoutController::class,'orderdetail'])->name('orderdetail');
+Route::get("/myorder",[CheckoutController::class,'myorder'])->name('myorder');
+Route::get("/myorders",[CheckoutController::class,'myorders'])->name('myorders')->middleware('auth');
+Route::get("/myorderdetail/{id}",[CheckoutController::class,'myorderdetail'])->name('myorderdetail')->middleware('auth');
 
 //cart - sepet
 Route::group(['prefix'=>'cart'],function(){

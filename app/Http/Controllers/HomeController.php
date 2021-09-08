@@ -10,4 +10,12 @@ class HomeController extends Controller
   {
     return view('index');
   }
+  public function about()
+  {
+    return view('about');
+  }
+  public function blog()
+  {
+    return view('blog');
+  }
 }

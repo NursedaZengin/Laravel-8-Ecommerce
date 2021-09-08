@@ -3,6 +3,8 @@
 @section('content')
     <div class="container mt-20" >
     @include('layouts.partials.alert')
+    @include('layouts.partials.success')
+    @include('layouts.partials.info')
     <span>Login</span>
       <form method="POST" action="{{ route('authenticate')}}">
         @csrf
@@ -12,11 +14,14 @@
           </div>
           <div class="row pl-15">
               <label for="password" value="" class="form-label w-full" />Password</br>
-              <input id="password" class=" w-full" type="password" name="password" required autocomplete="current-password" />
+              @if (Auth::viaRemember())
+                <input id="password" class=" w-full" type="password" name="password" value="{{ auth()->user()->password }}" required autocomplete="current-password" />
+              @else
+                <input id="password" class=" w-full" type="password" name="password" value="{{ old('password') }}" required autocomplete="current-password" />
+              @endif
           </div>
     			<div class="form-check mt-30">
-    				<label class="form-label" for="exampleCheck1">Remember Me</label>
-    				<input type="checkbox" class="form-check-input" id="exampleCheck1">
+             <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }} > Remember Me
     			</div>
           <div  class="row pl-15 mt-10 mb-30">
             <button class="ml-4 login-btn">Login </button>
