@@ -8,6 +8,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ShopdetailController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ForgotPasswordController;
 
 //home
 Route::get("/",[HomeController::class,'index'])->name('index');
@@ -32,6 +33,10 @@ Route::post("/authenticate",[LoginController::class,'authenticate'])->name('auth
 Route::get("/logout",[LoginController::class,'logout'])->name('logout');
 Route::get("/signup",[RegisterController::class,'index'])->name('signup');
 Route::post("/signup",[RegisterController::class,'signup'])->name('signup');
+Route::get("/forgotpassword",[ForgotPasswordController::class,'index'])->name('forgotpassword');
+Route::post("/forgotpassword",[ForgotPasswordController::class,'forgot'])->name('forgotpassword');
+Route::get('resetpassword/{token}',[ForgotPasswordController::class,'getreset'])->name('getreset');
+Route::post('resetpassword',[ForgotPasswordController::class,'resetpassword'])->name('resetpassword');
 
 //guest check
 Route::get("/checkout",[CheckoutController::class,'index'])->name('checkout')->middleware('auth');

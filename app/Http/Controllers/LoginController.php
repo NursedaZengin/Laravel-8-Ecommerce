@@ -22,7 +22,12 @@ class LoginController extends Controller
         if (Auth::attempt($credentials))//kullanıcı varsa
         {
             $request->session()->regenerate();//istekteki session yenilenir
-            Auth::attempt($credentials, $remember = $request->has('remember'));//eğer beni hatırlaya tıklanmışsa tabloya veri atar
+            $rmmbr=$request->has('remember')?true:false;
+            if(Auth::attempt($credentials, $remember = $rmmbr))
+            {
+              $user=auth()->user();
+            }
+            Auth::attempt($credentials, $remember = $rmmbr);//eğer beni hatırlaya tıklanmışsa tabloya veri atar
             return redirect('/');//anasayfaya geri yönlendirilir
         }
         else

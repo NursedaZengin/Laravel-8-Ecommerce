@@ -11,7 +11,7 @@
     				</div>
     				<div class="mt-30 row">
     					<a href="https://github.com/NursedaZengin" target="blank" class=" btn-home">Screencasts</a>
-    					<a href="https://github.com/NursedaZengin" target="blank" class="ml-10 btn-home">GitHub</a>
+    					<a href="https://github.com/NursedaZengin/Laravel-8-Ecommerce" target="blank" class="ml-10 btn-home">GitHub</a>
     				</div>
     			</div>
     			<div class="col-md-6 text-center"><img src="img/pc.png"/></div>

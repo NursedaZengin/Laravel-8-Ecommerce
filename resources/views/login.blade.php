@@ -21,11 +21,11 @@
               @endif
           </div>
     			<div class="form-check mt-30">
-             <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }} > Remember Me
+             <input type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }} > Remember Me
     			</div>
           <div  class="row pl-15 mt-10 mb-30">
             <button class="ml-4 login-btn">Login </button>
-    				<span>Forgot Your Password? <a href="{{ route('guestCheckOut')}}" class="product-a">Checkout as a Guest</a></span>
+    				<span><a href="{{ route('forgotpassword')}}" class="product-a">Forgot Your Password?</a> <a href="{{ route('guestCheckOut')}}" class="product-a">Checkout as a Guest</a></span>
          </div>
        </form>
       </div>

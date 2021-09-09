@@ -12,6 +12,15 @@ class ShopController extends Controller
   {
     $products=Product::whereRaw('deleted_at is null')->get();
     $categories=Category::whereRaw('deleted_at is null')->orderBy('id','desc')->get();
+
+
+    if (request()->sort == 'low_high') {
+            $products = $products->sortBy('price');
+        }
+         elseif (request()->sort == 'high_low') {
+            $products = $products->sortByDesc('price');
+        }
+
     return view('shop',compact('products','categories'));
   }
 

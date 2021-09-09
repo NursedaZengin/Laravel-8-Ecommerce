@@ -1,4 +1,5 @@
 	body{overflow-x: hidden;}
+	.w-auto{width: auto;    height: 180px;}
 	#home-body{ color:#fff; background-image: url('img/back.jpg');     background-repeat: no-repeat;}
 	.header{background-color:#5d5d5d;}
 	.menu{ list-style-type:none; padding:0px; }

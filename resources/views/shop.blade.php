@@ -9,7 +9,11 @@
       		<div class="col-md-10">
       			<div class="col-md-12">
       				<div class="col-md-6"><h2 class="shop-h">Featured</h2></div>
-      				<div class="col-md-6 text-right mt-20"> <span class="text-bold">Price:</span> <a href="#" class="product-a">Low to High</a> | <a href="#" class="product-a">High to Low</a></div>
+      				<div class="col-md-6 text-right mt-20">
+                <span class="text-bold">Price:</span>
+                    <a href="{{ route('shop', ['category'=> request()->category, 'sort' => 'low_high']) }}" class="product-a ">Low to High</a> |
+                    <a href="{{ route('shop', ['category'=> request()->category, 'sort' => 'high_low']) }}" class="product-a ">High to Low</a>
+               </div>
       			</div>
       			<div class="col-md-12">
       				<div class="row">
@@ -18,8 +22,8 @@
                 @endif
                 @foreach($products as $product)
       					<div class="col-md-4 text-center p-20">
-      					  <a href="{{ route('shopdetail',$product->slug)}}" class="product-a">
-        						<img src="../img/{{{ $product->image}}}" class="product-img"/>
+      					  <a href="{{ route('shopdetail',$product->slug)}}" class="product-a ">
+        						<img src="../img/{{{ $product->image}}}" class="product-img w-auto"/>
         						<p>{{ $product->product_name }}</p>
         						<span>${{ $product->price }}</span>
       						</a>
