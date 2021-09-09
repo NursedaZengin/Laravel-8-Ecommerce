@@ -11,8 +11,8 @@
       				<div class="col-md-6"><h2 class="shop-h">Featured</h2></div>
       				<div class="col-md-6 text-right mt-20">
                 <span class="text-bold">Price:</span>
-                    <a href="{{ route('shop', ['category'=> request()->category, 'sort' => 'low_high']) }}" class="product-a ">Low to High</a> |
-                    <a href="{{ route('shop', ['category'=> request()->category, 'sort' => 'high_low']) }}" class="product-a ">High to Low</a>
+                    <a href="@if(request()->category){{ route('shopcategory', ['category'=> request()->category, 'sort' => 'low_high']) }}@else{{ route('shop', [ 'sort' => 'low_high']) }}@endif" class="product-a ">Low to High</a> |
+                    <a href="@if(request()->category){{ route('shopcategory', ['category'=> request()->category, 'sort' => 'high_low']) }}@else{{ route('shop', [ 'sort' => 'high_low']) }}@endif" class="product-a ">High to Low</a>
                </div>
       			</div>
       			<div class="col-md-12">
